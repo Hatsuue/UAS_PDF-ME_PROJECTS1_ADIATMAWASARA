@@ -1,0 +1,242 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+/* ================= GLOBAL ================= */
+body {
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+/* ================= HEADER ================= */
+header {
+  margin: auto;
+  padding: 10px 20px;
+  width: 90%;
+  background-color: rgb(203, 0, 0);
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3.2rem;
+  font-family: monospace;
+  display: inline-block;
+  color: beige;
+  border: 2px dotted beige;
+  border-radius: 15px;
+  padding: 10px 20px;
+}
+
+p {
+  margin: 10px 20px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 30px;
+  color: #ddd;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  cursor: pointer;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ================= HERO ================= */
+.Hero-text {
+  margin: 0;
+  text-transform: capitalize;
+  overflow: hidden;
+  padding: 14px 16px;
+  background: none;
+}
+
+.Text-group {
+  text-align: center;
+}
+
+/* ================= GALLERY ================= */
+.Gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+/* ================= IMAGE ROW ================= */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px;
+}
+
+.column {
+  flex: 1 1 45%;
+  max-width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.column img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.column img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .column {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+@media screen (max-width: 600px) {
+  .footer .footer-container .footer-left .footer-right {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+/* ================= FOOTER ================= */
+.footer {
+  margin: 0;
+  display: contents;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer h4 {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  margin: 20px 0;
+  display: flex;
+  padding: 14px 16px;
+}
+
+.footer li {
+  list-style: none;
+  margin: 10px 20px;
+  text-align: justify;
+}
+
+.footer-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-left p {
+  color: black;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.footer-right {
+  display: contents;
+  text-align: center;
+}
+
+.footer-right p {
+  display: block;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 8px 0 0;
+}
+
+/* ================= IMAGE ================= */
+.img {
+  width: 400px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+/* ================= BUTTON ================= */
+.btn-wa {
+  background-color: green;
+  display: inline-block;
+  border-radius: 20px;
+  color: white;
+  padding: 6px 12px;
+  margin: 20px auto;
+  font-weight: bold;
+  animation: bounce 2s infinite;
+}
+
+.btn-wa:hover {
+  background-color: red;
+}
