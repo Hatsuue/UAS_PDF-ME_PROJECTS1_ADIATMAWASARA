@@ -1,93 +1,94 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
-/* ================= GLOBAL ================= */
+/* ================= RESET & GLOBAL ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
-  margin: 10px;
-  padding: 10px 20px;
+  padding: 12px;
 }
 
 /* ================= HEADER ================= */
 header {
+  width: 100%;
+  max-width: 1200px;
   margin: auto;
-  padding: 10px 20px;
-  width: 90%;
+  padding: 16px;
   background-color: rgb(203, 0, 0);
   border-radius: 10px;
+  text-align: center;
 }
 
 h1 {
-  text-align: center;
-  font-size: 3.2rem;
   font-family: monospace;
-  display: inline-block;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
   color: beige;
   border: 2px dotted beige;
   border-radius: 15px;
   padding: 10px 20px;
+  display: inline-block;
 }
 
 p {
-  margin: 10px 20px;
+  margin: 10px;
   font-weight: 600;
   text-align: center;
-  font-size: 30px;
+  font-size: clamp(16px, 4vw, 30px);
   color: #ddd;
 }
 
 /* ================= NAVBAR ================= */
 .navbar {
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   background-color: #333;
-  font-family: Arial;
 }
 
-.navbar a {
-  float: left;
-  font-size: 16px;
+.navbar a,
+.dropbtn {
   color: white;
-  text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
+  text-align: center;
   cursor: pointer;
 }
 
 .navbar a:hover,
-.dropdown:hover .dropbtn {
+.dropbtn:hover {
   background-color: red;
+}
+
+.dropdown {
+  position: relative;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  top: 100%;
+  left: 0;
   min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0,0,0,.2);
+  z-index: 99;
 }
 
 .dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
+  color: #000;
   display: block;
-  text-align: left;
+  padding: 12px 16px;
 }
 
 .dropdown-content a:hover {
@@ -100,11 +101,8 @@ p {
 
 /* ================= HERO ================= */
 .Hero-text {
-  margin: 0;
-  text-transform: capitalize;
-  overflow: hidden;
   padding: 14px 16px;
-  background: none;
+  text-transform: capitalize;
 }
 
 .Text-group {
@@ -117,22 +115,21 @@ p {
   gap: 20px;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   font-weight: bold;
-  line-height: 20px;
 }
 
 /* ================= IMAGE ROW ================= */
 .row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 16px;
+  justify-content: center;
   padding: 10px;
 }
 
 .column {
-  flex: 1 1 45%;
-  max-width: 45%;
+  flex: 1 1 300px;
   display: flex;
   justify-content: center;
 }
@@ -141,85 +138,57 @@ p {
   width: 100%;
   max-width: 320px;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .column img:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-  .column {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-}
-@media screen (max-width: 600px) {
-  .footer .footer-container .footer-left .footer-right {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-}
 /* ================= FOOTER ================= */
 .footer {
-  margin: 0;
-  display: contents;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.footer h4 {
-  font-size: 18px;
-  line-height: 22px;
-  font-weight: 700;
-  margin: 20px 0;
-  display: flex;
-  padding: 14px 16px;
-}
-
-.footer li {
-  list-style: none;
-  margin: 10px 20px;
-  text-align: justify;
 }
 
 .footer-container {
   display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.footer h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+.footer li {
+  list-style: none;
+  margin: 8px 0;
 }
 
 .footer-left p {
-  color: black;
-  font-weight: 300;
-  text-align: center;
-  text-transform: uppercase;
+  color: #000;
   font-size: 14px;
-  margin: 6px 0;
-}
-
-.footer-right {
-  display: contents;
-  text-align: center;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .footer-right p {
-  display: block;
   color: #333;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.6;
-  margin: 8px 0 0;
 }
 
 /* ================= IMAGE ================= */
 .img {
-  width: 400px;
+  width: 100%;
+  max-width: 320px;
   height: auto;
   display: block;
   margin: auto;
@@ -228,15 +197,49 @@ p {
 /* ================= BUTTON ================= */
 .btn-wa {
   background-color: green;
-  display: inline-block;
-  border-radius: 20px;
   color: white;
-  padding: 6px 12px;
+  padding: 10px 16px;
+  border-radius: 20px;
+  display: inline-block;
   margin: 20px auto;
   font-weight: bold;
   animation: bounce 2s infinite;
+  text-align: center;
 }
 
 .btn-wa:hover {
   background-color: red;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* TABLET */
+@media (max-width: 768px) {
+  .Gallery {
+    flex-direction: column;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  header {
+    padding: 12px;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+  }
+
+  .btn-wa {
+    width: 100%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+  }
 }
